@@ -10,10 +10,14 @@ from ..util import now
 
 
 class Miner:
-    def __init__(self, block: Block, mining: threading.Event):
+    def __init__(self,
+                 block: Block,
+                 mining: threading.Event,
+                 main_queue: queue.Queue = None):
         self.parser = Parser()
         self.block = block
         self.mining = mining
+        self.main_queue = main_queue
 
     def mine_block(self):
         idx = 0
@@ -33,10 +37,5 @@ class Miner:
             self.new_block_mint()
 
     def new_block_mint(self):
-
-        block_json = self.parser.dump_block(self.block)
-        if block_json:
-            requests.post(
-                "http://127.0.0.1:{}/internal/block" % PORT, json=block_json)
-        else:
-            raise Exception("Mint Block Dump Fail")
+        if self.main_queue:
+            self.main_queue.put(self.block)
