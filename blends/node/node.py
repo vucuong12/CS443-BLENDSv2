@@ -87,5 +87,5 @@ class Node:
                 self.new_block_mint(result)
             elif type(result) == Transaction:
                 self.new_transaction_issued(result)
-            elif type(result) == dict:
+            elif type(result) == list:
                 self.new_requests_received(result)
