@@ -19,7 +19,7 @@ def verify(pk, msg, sig):
 def load_secret_key(fname):
     '''
     load json information of secret key from fname. 
-    This returns RSA key object.
+    This returns RSA key object of pycrytodome library.
     '''
     sk = None
     return sk
@@ -29,13 +29,16 @@ def create_secret_key(fname):
     '''
     Create a secret key: [hint] RSA.generate().
     Save the secret key in json to a file named "fname". 
-    This returns RSA key object.
+    This returns RSA key object of pycrytodome library.
     '''
     sk = None
     return sk
 
 
 def get_hash(msg):
+    '''
+    return hash hexdigest for msg with 0x. ex) 0x1a2b...
+    '''
     pass
 
 
