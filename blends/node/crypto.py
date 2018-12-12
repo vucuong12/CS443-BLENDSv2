@@ -1,7 +1,7 @@
 def sign(sk, msg):
     '''
-    sign String msg with corresponding secret key (RsaKey object) in pycryptodome library
-    return hex value for signature
+    sign string msg with corresponding secret key (RsaKey object) in pycryptodome library
+    return hex value of signature with RSA pkcs1 v1.5
     '''
     pass
 
@@ -37,7 +37,7 @@ def create_secret_key(fname):
 
 def get_hash(msg):
     '''
-    return hash hexdigest for msg with 0x. ex) 0x1a2b...
+    return hash hexdigest for string msg with 0x. ex) 0x1a2b...
     '''
     pass
 
